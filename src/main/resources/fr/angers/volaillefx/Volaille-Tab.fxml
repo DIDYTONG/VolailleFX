@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="146.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Affichage des volailles présentes dans la base de données " />
+      <TableView layoutX="35.0" layoutY="50.0" prefHeight="300.0" prefWidth="530.0">
+        <columns>
+          <TableColumn prefWidth="264.0" text="Numéro d'Identification" />
+          <TableColumn prefWidth="268.00006103515625" text="Poids" />
+        </columns>
+      </TableView>
+      <Button layoutX="538.0" layoutY="360.0" mnemonicParsing="false" text="Fermer" />
+   </children>
+</AnchorPane>

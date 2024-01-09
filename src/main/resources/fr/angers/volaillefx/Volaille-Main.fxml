@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="627.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.angers.volaillefx.Gui">
+   <children>
+      <AnchorPane prefHeight="70.0" prefWidth="600.0">
+         <children>
+            <TextField fx:id="prixKiloPoulet" layoutX="225.0" layoutY="35.0" />
+            <Text layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix au Kilo pour les Poulets :" textAlignment="CENTER" wrappingWidth="195.73672485351562" />
+            <Text layoutX="390.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="€/Kg" wrappingWidth="195.73672485351562" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="70.0" prefHeight="70.0" prefWidth="600.0">
+         <children>
+            <TextField fx:id="prixKiloCannard" layoutX="225.0" layoutY="35.0" />
+            <Text layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix au Kilo pour les Canards :" textAlignment="CENTER" wrappingWidth="195.73672485351562" />
+            <Text layoutX="390.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="€/Kg" wrappingWidth="195.73672485351562" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="140.0" prefHeight="70.0" prefWidth="600.0">
+         <children>
+            <TextField fx:id="poidsAbatagePoulet" layoutX="225.0" layoutY="35.0" />
+            <Text layoutX="8.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poids d'abattage pour les Poulets :" textAlignment="CENTER" wrappingWidth="195.73672485351562" />
+            <Text layoutX="390.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kg" wrappingWidth="195.73672485351562" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="210.0" prefHeight="70.0" prefWidth="600.0">
+         <children>
+            <TextField fx:id="poidsAbatageCannard" layoutX="225.0" layoutY="35.0" />
+            <Text layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poids d'abattage pour les Canards :" textAlignment="CENTER" wrappingWidth="195.73672485351562" />
+            <Text layoutX="390.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kg" wrappingWidth="195.73672485351562" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="280.0" prefHeight="70.0" prefWidth="600.0">
+         <children>
+            <TextField fx:id="poidsVolaille" layoutX="224.0" layoutY="37.0" prefHeight="26.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="typeChoiceBox" layoutX="108.0" layoutY="37.0" prefHeight="26.0" prefWidth="92.0">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Poulet" />
+                     <String fx:value="Canard" />
+                  </FXCollections>
+               </items>
+            </ChoiceBox>
+            <Button fx:id="buttonAjouter" layoutX="510.0" layoutY="38.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Ajouter" />
+            <TextField fx:id="quantite" layoutX="408.0" layoutY="37.0" prefHeight="26.0" prefWidth="72.0" />
+            <Text layoutX="411.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantité" textAlignment="CENTER" wrappingWidth="65.33670043945312" />
+            <Text layoutX="225.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poid de la volaille" textAlignment="CENTER" wrappingWidth="150.39999999999986" />
+            <Text layoutX="108.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type de volaille" wrappingWidth="92.0" />
+            <Text layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajout volaille :" textAlignment="CENTER" wrappingWidth="92.0" />
+         </children>
+      </AnchorPane>
+
+      <Button fx:id="btnPasAbattre" layoutX="435.0" layoutY="586.0" mnemonicParsing="false" onAction="#handlebtnPasAbattre" prefHeight="26.0" prefWidth="150.0" text="Affichage Non Abattage" />
+      <Button layoutX="224.0" layoutY="586.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Affichage Vollaille" />
+      <Button layoutX="14.0" layoutY="586.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Affichage Abattage" />
+      <Button fx:id="trier" layoutX="263.0" layoutY="364.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Trier" />
+      <TextArea layoutX="134.0" layoutY="402.0" prefHeight="156.0" prefWidth="332.0" fx:id="textArea1" />
+   </children>
+</AnchorPane>
