@@ -35,10 +35,10 @@ public class VolailleAbattre implements Initializable {
     public void afficherResultatsAbattage(int nombrePoulets, int nombreCanards, int prixTotalCanards, int prixTotalPoulets, int nombrePouletsRestant, int nombreCanardsRestant) {
         textAreaA.appendText("Nombre de poulets à abattre : " + nombrePoulets + "\n");
         textAreaA.appendText("Nombre de canards à abattre : " + nombreCanards + "\n");
-        textAreaA.appendText("Prix total poulets : " + prixTotalPoulets + "\n");
-        textAreaA.appendText("Prix total canard : " + prixTotalCanards + "\n");
+        textAreaA.appendText("Prix total poulets : " + prixTotalPoulets + " €" + "\n");
+        textAreaA.appendText("Prix total canard : " + prixTotalCanards + " €" + "\n");
         textAreaA.appendText("Nombre de poulets restant : " + nombrePouletsRestant + "\n");
-        textAreaA.appendText("Nombre de canard restant : " + nombreCanardsRestant + "\n");
+        textAreaA.appendText("Nombre de canards restant : " + nombreCanardsRestant + "\n");
     }
 
     @FXML

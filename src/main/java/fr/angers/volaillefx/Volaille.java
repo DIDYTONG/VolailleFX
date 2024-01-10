@@ -4,7 +4,7 @@ abstract class Volaille {
     //Definition des variables
     private String numeroIdentification;
     private int id;
-    private static double poids;
+    private double poids;
     private double prixJour;
     private double poidsAbattage;
 
@@ -30,8 +30,12 @@ abstract class Volaille {
         this.id = id;
     }
 
-    public static double getPoids() {
+    public double getPoids() {
         return poids;
+    }
+
+    public void setId(double poids) {
+        this.poids = poids;
     }
 
     @Override

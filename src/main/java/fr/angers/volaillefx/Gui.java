@@ -53,6 +53,8 @@ public class Gui extends Application {
     @FXML
     private ChoiceBox typeChoiceBox;
 
+    @FXML
+    private Button btnClose;
 
     public static void main(String[] args) {
         launch(args);
@@ -122,8 +124,8 @@ public class Gui extends Application {
             int nombrePouletsRestant = (int) elevage.getPouletsRestants();
             int nombreCanardsRestant = (int) elevage.getCanardsRestants();
 
-            double prixTotalCanards = prixCanards * Canard.getPrixJour() * nombreCanards;
-            double prixTotalPoulets = prixPoulets * Poulet.getPrixJour() * nombrePoulets;
+            double prixTotalCanards = prixCanards * Canard.getPrixJour();
+            double prixTotalPoulets = prixPoulets * Poulet.getPrixJour();
 
             System.out.println("Total du prix des canards : " + prixTotalCanards);
             System.out.println("Total du prix des poulets : " + prixTotalPoulets);
@@ -156,25 +158,6 @@ public class Gui extends Application {
         textArea1.setEditable(false);
     }
 
-    @FXML
-    private Button btnPasAbattre;
-    public void handlebtnPasAbattre(ActionEvent actionEvent) throws IOException {
-        // Charger le fichier FXML
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("VolaillePasAbattre.fxml"));
-        Stage primaryStage = new Stage();
-        Parent root = loader.load();
-        Elevage elevage = new Elevage();
-
-        // Initialiser la scène
-        Scene scene = new Scene(root);
-        primaryStage.setTitle("Volaille à NE PAS Abattre");
-        primaryStage.setScene(scene);
-
-        primaryStage.initModality(Modality.NONE);
-        primaryStage.show();
-
-    }
-
     public void handlebtnAbattre(ActionEvent actionEvent) throws IOException {
         // Charger le fichier FXML
         FXMLLoader loader = new FXMLLoader(getClass().getResource("VolailleAbattre.fxml"));
@@ -189,5 +172,11 @@ public class Gui extends Application {
 
         primaryStage.initModality(Modality.NONE);
         primaryStage.show();
+    }
+
+    //Fermeture de la fenêtre
+    @FXML
+    public void handlebtnClose(ActionEvent actionEvent) {
+        ((Stage)(((Button)actionEvent.getSource()).getScene().getWindow())).close();
     }
 }
