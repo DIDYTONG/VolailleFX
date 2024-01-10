@@ -102,11 +102,64 @@ public class Elevage {
         double prixPoulet = 0;
         System.out.println("Poulets à abattre :");
         for (Poulet poulet : poulets) {
-            if (poulet.getPoidsAbattage() <= poulet.getPoids()) {
+            if (Poulet.getPoidsAbattage() <= poulet.getPoids()) {
                 System.out.println(poulet);
                 prixPoulet += poulet.getPoids();
             }
         }
         return prixPoulet;
     }
+
+    public double nbAbattreCanard() {
+        double nbCannard = 0;
+
+        System.out.println("Canard à abattre :");
+        for (Canard canard : canards) {
+            if (canard.getPoidsAbattage() <= canard.getPoids()) {
+                System.out.println(canard);
+                nbCannard += 1;
+            }
+        }
+        return nbCannard;
+    }
+
+    public double nbAbattrePoulet() {
+        double nbPoulet = 0;
+        System.out.println("Nb Poulets à abattre :");
+        for (Poulet poulet : poulets) {
+            if (Poulet.getPoidsAbattage() <= poulet.getPoids()) {
+                System.out.println(poulet);
+                nbPoulet += 1;
+            }
+        }
+        return nbPoulet;
+    }
+
+
+    /**
+     * Récupère le nombre de poulets restants qui ne sont pas prêts à l'abattage.
+     *
+     * @return Le nombre de poulets restants.
+     */
+    public int getPouletsRestants() {
+        int pouletsRestants = 0;
+        for (Poulet poulet : poulets) {
+            if (poulet.getPoidsAbattage() > poulet.getPoids()) {
+                pouletsRestants++;
+            }
+        }
+        return pouletsRestants;
+    }
+
+
+    public int getCanardsRestants() {
+        int canardsRestants = 0;
+        for (Canard canard : canards) {
+            if (canard.getPoidsAbattage() > canard.getPoids()) {
+                canardsRestants++;
+            }
+        }
+        return canardsRestants;
+    }
+
 }

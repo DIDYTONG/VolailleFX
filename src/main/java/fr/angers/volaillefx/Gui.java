@@ -61,7 +61,7 @@ public class Gui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Charger le fichier FXML
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Volaille-Main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("VolailleMain.fxml"));
         Parent root = loader.load();
         Elevage elevage = new Elevage();
 
@@ -113,14 +113,41 @@ public class Gui extends Application {
             Poulet.setPoidsAbattage(Double.parseDouble(controller.poidsAbatagePoulet.getText()));
             Canard.setPoidsAbattage(Double.parseDouble(controller.poidsAbatageCannard.getText()));
 
+            int prixPoulets = (int) elevage.trierEtAbattrePoulet();
+            int prixCanards = (int) elevage.trierEtAbattreCanard();
 
-            double prixTotalCanards = elevage.trierEtAbattreCanard() * Canard.getPrixJour();
-            double prixTotalPoulets = elevage.trierEtAbattrePoulet() * Poulet.getPrixJour();
+            int nombreCanards = (int) elevage.nbAbattreCanard();
+            int nombrePoulets = (int) elevage.nbAbattrePoulet();
+
+            int nombrePouletsRestant = (int) elevage.getPouletsRestants();
+            int nombreCanardsRestant = (int) elevage.getCanardsRestants();
+
+            double prixTotalCanards = prixCanards * Canard.getPrixJour() * nombreCanards;
+            double prixTotalPoulets = prixPoulets * Poulet.getPrixJour() * nombrePoulets;
 
             System.out.println("Total du prix des canards : " + prixTotalCanards);
             System.out.println("Total du prix des poulets : " + prixTotalPoulets);
             System.out.println("Prix total de l'élevage : " + (prixTotalCanards + prixTotalPoulets));
+
+
+
+            // Passer les résultats à la fenêtre VolailleAbattre
+            FXMLLoader abattreLoader = new FXMLLoader(getClass().getResource("VolailleAbattre.fxml"));
+            try {
+                Parent abattreRoot = abattreLoader.load();
+                VolailleAbattre abattreController = abattreLoader.getController();
+                abattreController.afficherResultatsAbattage(nombrePoulets, nombreCanards, (int) prixTotalCanards, (int) prixTotalPoulets, nombrePouletsRestant, nombreCanardsRestant);
+
+                Stage abattreStage = new Stage();
+                Scene abattreScene = new Scene(abattreRoot);
+                abattreStage.setTitle("Volaille à Abattre");
+                abattreStage.setScene(abattreScene);
+                abattreStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
+
 
     }
 
@@ -133,7 +160,7 @@ public class Gui extends Application {
     private Button btnPasAbattre;
     public void handlebtnPasAbattre(ActionEvent actionEvent) throws IOException {
         // Charger le fichier FXML
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Volaille-PAS_Abattre.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("VolaillePasAbattre.fxml"));
         Stage primaryStage = new Stage();
         Parent root = loader.load();
         Elevage elevage = new Elevage();
@@ -145,6 +172,22 @@ public class Gui extends Application {
 
         primaryStage.initModality(Modality.NONE);
         primaryStage.show();
+
+    }
+
+    public void handlebtnAbattre(ActionEvent actionEvent) throws IOException {
+        // Charger le fichier FXML
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("VolailleAbattre.fxml"));
+        Stage primaryStage = new Stage();
+        Parent root = loader.load();
+        Elevage elevage = new Elevage();
+
+        // Initialiser la scène
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("Volaille à Abattre");
+        primaryStage.setScene(scene);
+
+        primaryStage.initModality(Modality.NONE);
+        primaryStage.show();
     }
 }
-
